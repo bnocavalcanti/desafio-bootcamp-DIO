@@ -1,6 +1,4 @@
-import br.com.dio.desafio.dominio.Conteudo;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -24,9 +22,45 @@ public class Main {
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//        System.out.println(mentoria);
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição do Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devBruno = new Dev();
+        devBruno.setNome("Bruno");
+        devBruno.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Bruno:" + devBruno.getConteudosInscritos());
+
+        devBruno.progredir();
+        devBruno.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Bruno:" + devBruno.getConteudosConcluidos());
+        System.out.println("Conteúdos Concluídos Bruno:" + devBruno.getConteudosConcluidos());
+        System.out.println("XP: " + devBruno.calcularTotalXp());
+
+
+        System.out.println("------------");
+
+        Dev devLuke = new Dev();
+        devLuke.setNome("Luke");
+        devLuke.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Luke:" + devLuke.getConteudosInscritos());
+        devLuke.progredir();
+        devLuke.progredir();
+        devLuke.progredir();
+        devLuke.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Luke:" + devLuke.getConteudosConcluidos());
+        System.out.println("Conteúdos Concluídos Luke:" + devLuke.getConteudosConcluidos());
+        System.out.println("XP: " + devLuke.calcularTotalXp());
+
 
 
     }
